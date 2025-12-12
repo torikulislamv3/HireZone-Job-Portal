@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180" height="38" viewBox="0 0 180 38" xmlns="http://www.w3.org/2000/svg">
+  <!-- Left icon circle -->
+  <circle cx="19" cy="19" r="19" fill="#0B84FF"/>
+  <!-- Tie shape inside -->
+  <path d="M15 8 L23 8 L21 15 L17 15 Z" fill="white"/>
+  <path d="M16 15 L19 30 L22 15 L19 20 Z" fill="white"/>
+
+  <!-- Text -->
+  <text x="45" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#000">
+    HireZone
+  </text>
+</svg>
