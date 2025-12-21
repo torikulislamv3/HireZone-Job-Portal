@@ -28,10 +28,18 @@ const ViewApplications = () => {
                   />
                   <span>{applicant.name}</span>
                 </td>
-                <td className="py-2 px-4 border-b max-sm:hidden">{applicant.jobTitle}</td>
-                <td className="py-2 px-4 border-b max-sm:hidden">{applicant.location}</td>
+                <td className="py-2 px-4 border-b max-sm:hidden">
+                  {applicant.jobTitle}
+                </td>
+                <td className="py-2 px-4 border-b max-sm:hidden">
+                  {applicant.location}
+                </td>
                 <td className="py-2 px-4 border-b">
-                  <a href="" target="_blank" className="bg-blue-50 text-blue-400 px-3 py-1 rounded inline-flex gap-2 items-center">
+                  <a
+                    href=""
+                    target="_blank"
+                    className="bg-blue-50 text-blue-400 px-3 py-1 rounded inline-flex gap-2 items-center"
+                  >
                     Resume <img src={assets.resume_download_icon} alt="" />
                   </a>
                 </td>
@@ -39,8 +47,12 @@ const ViewApplications = () => {
                   <div className="relative inline-block text-left group">
                     <button className="text-gray-500 action-button">...</button>
                     <div className="absolute z-10 hidden right-0 md:left-0 top-0 mt-2 w-32 bg-white border border-gray-200 rounded shadow group-hover:block">
-                      <button className="block w-full text-left px-4 py-2 text-blue-500 hover:bg-gray-100">Accept</button>
-                      <button className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100">Reject</button>
+                      <button className="block w-full text-left px-4 py-2 text-blue-500 hover:bg-gray-100">
+                        Accept
+                      </button>
+                      <button className="block w-full text-left px-4 py-2 text-red-500 hover:bg-gray-100">
+                        Reject
+                      </button>
                     </div>
                   </div>
                 </td>

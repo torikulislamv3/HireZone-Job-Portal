@@ -29,7 +29,8 @@ export const AppContextProvider = (props) => {
     isSearched,
     setIsSearched,
     jobs,
-    setJobs,showRecruiterLogin,
+    setJobs,
+    showRecruiterLogin,
     setShowRecruiterLogin,
   };
 

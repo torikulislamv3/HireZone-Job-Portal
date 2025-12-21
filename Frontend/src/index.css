@@ -11,14 +11,12 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    
   }
 }
 
 ::-webkit-scrollbar {
-      display: none;
-    }
-
+  display: none;
+}
 
 /* ========= RESET FIX (if global reset exists) ========= */
 .rich-text ol,
@@ -96,4 +94,3 @@
     font-size: 20px;
   }
 }
-

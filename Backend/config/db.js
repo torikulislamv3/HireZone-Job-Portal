@@ -1,11 +1,10 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 // Function to connect to the MongoDb database
-const connectDB = async ()=> {
+const connectDB = async () => {
+  mongoose.connection.on("connected", () => console.log("Dotabase Connected"));
 
-    mongoose.connection.on('connected',() => console.log('Dotabase Connected'))
+  await mongoose.connect(`${process.env.MONGODB_URI}/job-portal`);
+};
 
-    await mongoose.connect(`${process.env.MONGODB_URI}/job-portal`)
-}
-
-export default connectDB
+export default connectDB;
