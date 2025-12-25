@@ -29,7 +29,7 @@ export const getJobById = async (req, res) => {
         message: "job not found",
       });
     }
-    res.jsno({
+    res.json({
       success: true,
       job,
     });

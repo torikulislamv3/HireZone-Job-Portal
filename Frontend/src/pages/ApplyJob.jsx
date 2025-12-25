@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import Loading from "../components/Loading";
 import { assets } from "../assets/assets";
@@ -8,23 +8,57 @@ import moment from "moment";
 import Navbar from "../components/Navbar";
 import JobCard from "../components/JobCard";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const ApplyJob = () => {
   const { id } = useParams();
+  // const navigate = useNavigate()
   const [jobData, setJobData] = useState(null);
-  const { jobs } = useContext(AppContext);
+  const { jobs, backendUrl,
+    //  userData, userApplications
+     } = useContext(AppContext);
 
-  const fetchJob = () => {
-    const data = jobs.filter((job) => job._id === id);
-    if (data.length !== 0) {
-      setJobData(data[0]);
-      console.log(data[0]);
+  const fetchJob = async () => {
+    
+
+    try {
+      const {data} = await axios.get(backendUrl + `/api/jobs/${id}`)
+    if (data.success) {
+      setJobData(data.job)
+    } else{
+      toast.error(data.message)
     }
+    } catch (error) {
+      toast.error(error.message)
+    }
+
+    
+
   };
+
+//   const applyHandler = async () => {
+//     try {
+      
+
+//       if (!userData) {
+//   return toast.error('User data loading, please wait...')
+// }
+
+
+//       if (!userData.resume) {
+//         navigate('/applications')
+//         return toast.error('Upload resume to apply')
+//       }
+
+//     } catch (error) {
+//       toast.error(error.message)
+//     }
+//   }
 
   useEffect(() => {
     fetchJob();
-  }, [id, jobs]);
+  }, [id]);
 
   return jobData ? (
     <>

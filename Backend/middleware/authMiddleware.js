@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import Company from "../models/Company.js";
 
-export const protectCompany = async (req, resizeBy, next) => {
+export const protectCompany = async (req, res, next) => {
   const token = req.headers.token;
 
   if (!token) {
