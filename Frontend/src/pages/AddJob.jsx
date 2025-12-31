@@ -27,7 +27,7 @@ const AddJob = () => {
       const {data} = await axios.post(backendUrl + '/api/company/post-job',{title, description, location, salary, category, level},{headers:{token:companyToken}}) 
 
       if (data.success) {
-        toast.success(data.message)
+        toast.success('Job Added Successfully')
         setTitle('')
         setSalary(0)
         quillRef.current.root.innerHTML = ''

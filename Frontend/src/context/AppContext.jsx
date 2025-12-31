@@ -1,7 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useAuth, useUser } from "@clerk/clerk-react";
+import {useAuth, useUser} from '@clerk/clerk-react'
+
 
 export const AppContext = createContext();
 export const AppContextProvider = (props) => {
@@ -10,6 +11,7 @@ export const AppContextProvider = (props) => {
 
   const {user} = useUser()
   const {getToken} = useAuth()
+  
 
   const [searchFilter, setSearchFilter] = useState({
     title: "",
@@ -66,23 +68,22 @@ export const AppContextProvider = (props) => {
   }
 
   // Function to fetch user data
-  const fetcUserData = async () =>{
+  const fetchUserData = async () => {
     try {
+      
+
       const token = await getToken()
-      console.log("Token from Clerk:", token);
-      // const {data} = await axios.get(backendUrl + '/api/users/user',{headers:{Authorization:`Bearer ${token}`}})
 
-      const { data } = await axios.get(`${backendUrl}/api/users/user`, {
-  headers: { Authorization: `Bearer ${token}` },
-});
-// console.log("Backend response:", data);
-
+      const {data} = await axios.get(backendUrl + '/api/users/user',
+        {headers:{Authorization:`Bearer ${token}`}}
+      )
 
       if (data.success) {
         setUserData(data.user)
-      } else {
+      } else (
         toast.error(data.message)
-      }
+      )
+
     } catch (error) {
       toast.error(error.message)
     }
@@ -108,7 +109,7 @@ if (companyToken){
 
   useEffect(()=>{
     if (user) {
-      fetcUserData()
+      fetchUserData()
     }
   },[user])
 
